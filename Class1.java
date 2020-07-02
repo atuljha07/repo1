@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 
 /* DO NOT CHANGE ANYTHING ABOVE THIS LINE */
 /* You may add any imports here, if you wish, but only from the 
@@ -25,18 +27,20 @@ public class LinesProcMap {
          * as your answer
          */
         //code map array to list of Constituency
-        Map<String,Map<Integer,Integer>> map = new HashMap<>();
+        Map<String,Map.Entry<Integer, Integer>> map = new HashMap<>();
         String[] values = new String[4];
         for (String str:array) {
             values = str.split(",");
             if (null == map.get(values[2].trim()) 
-                || map.get(values[2].trim()).getKey() < Integer.valueOf(values[3].trim()) {
-                    map.put(values[2],Map.of(Integer.valueOf(values[3].trim()),Integer.valueOf(values[0].trim()));
+                || map.get(values[2].trim()).getKey() < 
+                    Integer.valueOf(values[3].trim())) {
+                    map.put(values[2].trim(),
+                        new AbstractMap.SimpleEntry(Integer.valueOf(values[3].trim()),Integer.valueOf(values[0].trim())));
             }
         }
         Map<String, Integer> retVal = new HashMap<>();
         for (String str: map.keySet()) {
-            retVal.put(str,map.get(str).getValue())
+            retVal.put(str,map.get(str).getValue());
         }
         return (retVal);
     }
