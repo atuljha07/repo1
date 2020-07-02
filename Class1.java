@@ -31,11 +31,11 @@ public class LinesProcMap {
         String[] values = new String[4];
         for (String str:array) {
             values = str.split(",");
-            if (null == map.get(values[2].trim()) 
-                || map.get(values[2].trim()).getKey() < 
-                    Integer.valueOf(values[3].trim())) {
-                    map.put(values[2].trim(),
-                        new AbstractMap.SimpleEntry(Integer.valueOf(values[3].trim()),Integer.valueOf(values[0].trim())));
+            for (int i=0;i<4;i++) {
+                values[i] = values[i].trim();
+            }
+            if (null == map.get(values[2]) || map.get(values[2].trim()).getKey() < Integer.valueOf(values[3])) {
+                    map.put(values[2], new AbstractMap.SimpleEntry(Integer.valueOf(values[3]),Integer.valueOf(values[0])));
             }
         }
         Map<String, Integer> retVal = new HashMap<>();
