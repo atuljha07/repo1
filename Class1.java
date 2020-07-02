@@ -34,7 +34,7 @@ public class LinesProcMap {
             for (int i=0;i<4;i++) {
                 values[i] = values[i].trim();
             }
-            if (null == map.get(values[2]) || map.get(values[2].trim()).getKey() < Integer.valueOf(values[3])) {
+            if (null == map.get(values[2]) || map.get(values[2]).getKey() < Integer.valueOf(values[3])) {
                     map.put(values[2], new AbstractMap.SimpleEntry(Integer.valueOf(values[3]),Integer.valueOf(values[0])));
             }
         }
