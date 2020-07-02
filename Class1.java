@@ -26,12 +26,12 @@ public class LinesProcMap {
          */
         //code map array to list of Constituency
         Map<String,Map<Integer,Integer>> map = new HashMap<>();
-        String[] values;
+        String[] values = new String[4];
         for (String str:array) {
             values = str.split(",");
             if (null == map.get(values[2].trim()) 
-                || map.get(values[2].trim()).getKey() < values[3] ) {
-                    map.put(values[2],Map.of(values[3],values[0]));
+                || map.get(values[2].trim()).getKey() < Integer.valueOf(values[3].trim()) {
+                    map.put(values[2],Map.of(Integer.valueOf(values[3].trim()),Integer.valueOf(values[0].trim()));
             }
         }
         Map<String, Integer> retVal = new HashMap<>();
